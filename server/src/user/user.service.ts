@@ -81,11 +81,11 @@ export class UserService {
       data: {
         favorites: {
           [isExist ? 'disconnect' : 'connect']: {
-            id: productId,
+            id: +productId,
           },
         },
       },
     });
-    return 'Success';
+    return { message: 'Success' };
   }
 }

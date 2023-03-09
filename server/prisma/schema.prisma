@@ -36,17 +36,18 @@ model Product {
   reviews Review[]
   createdAt DateTime @default(now())@map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-categoryId Int @map("category_id")
+  categoryId Int @map("category_id")
   category Category @relation(fields: [categoryId], references: [id])
   
-userId Int @map("user_id")
-  user User @relation(fields: [userId], references: [id])
+  userId Int? @map("user_id")
+  user User? @relation(fields: [userId], references: [id])
   
 }
 
 model Category {
   id Int @id @default(autoincrement())
   name String @unique
+  slug String @unique
   createdAt DateTime @default(now())@map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
   products Product[]
