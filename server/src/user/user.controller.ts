@@ -28,7 +28,7 @@ export class UserController {
   @Auth()
   @Put('profile')
   async updateProfile(@CurrentUser('id') id: number, @Body() dto: UserDto) {
-    // return await this.userService.updateProfile(id, dto);
+    return await this.userService.updateProfile(id, dto);
   }
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
@@ -38,6 +38,6 @@ export class UserController {
     @Param('productId') productId: string,
     @CurrentUser('id') id: number,
   ) {
-    // return await this.userService.toggleFavorite(id, productId);
+    return await this.userService.toggleFavorite(id, productId);
   }
 }

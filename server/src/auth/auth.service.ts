@@ -17,7 +17,7 @@ export class AuthService {
   constructor(private prisma: PrismaService, private jwt: JwtService) {}
   async register(dto: AuthDto) {
     const candidat = await this.prisma.user.findUnique({
-      where: { email: dto.email },
+      where: { email: dto.email }
     });
 
     if (candidat) return new BadRequestException('Пользователь уже существует');
